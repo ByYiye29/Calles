@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Carreteras.tb_usuarios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+	 @Html.ActionLink("Nuevo", "Create",null,new { @class = "btn btn-success toolbar-item" })
+</p>
+
+
+
+
+ <div class="ibox-content">
+    <div class="table-responsive">
+
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+   
+   <table class="table table-striped table-bordered table-hover dataTables-example dataTable dtr-inline" id="tbl" aria-describedby="tabla_evento_info" role="grid">
+    <thead>
+	<tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.usu_descripcion)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.usu_password)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.usu_fecha_crea)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.usu_fecha_modifica)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.usu_estado)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.tb_usuarios2.usu_descripcion)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.tb_usuarios3.usu_descripcion)
+        </th>
+        <th>Accion</th>
+    </tr>
+	</thead>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.usu_descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usu_password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usu_fecha_crea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usu_fecha_modifica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usu_estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_usuarios2.usu_descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_usuarios3.usu_descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.usu_id }, new { @class = "btn btn-success  btn-xs" }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.usu_id }, new { @class = "btn btn-default btn-xs" }) |
+            @Html.ActionLink("Inactivar", "Delete", new { id=item.usu_id }, new { @class = "btn btn-danger btn-xs" })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
+ </div>
+ </div>
+ </div>
+
+
+
+
